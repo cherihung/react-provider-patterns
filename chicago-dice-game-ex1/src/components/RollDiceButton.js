@@ -1,9 +1,10 @@
-import React from "react";
-import { Button } from "../styled";
-import { ACTION_TYPES } from "../provider";
-import { useGameStateContext, useGameDispatchContext } from "../useGameContext";
+import React from 'react';
 
-export default function RollDiceButton() {
+import { ACTION_TYPES } from '../provider';
+import { Button } from '../styled';
+import { useGameDispatchContext, useGameStateContext } from '../useGameContext';
+
+const RollDiceButton = () => {
   const { playerTurn, gameEnded } = useGameStateContext();
   const dispatch = useGameDispatchContext();
 
@@ -19,3 +20,5 @@ export default function RollDiceButton() {
     </Button>
   );
 }
+
+export default RollDiceButton;

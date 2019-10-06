@@ -1,8 +1,9 @@
-import React from "react";
-import { Button } from "../styled";
-import { useGameContext } from "../useGameContext";
+import React from 'react';
 
-export default function RollDiceButton() {
+import { Button } from '../styled';
+import { useGameContext } from '../useGameContext';
+
+const RollDiceButton = () => {
   const { playerTurn, gameEnded, initRoll } = useGameContext();
 
   function handleClick() {
@@ -13,4 +14,6 @@ export default function RollDiceButton() {
       Roll the Dice
     </Button>
   );
-}
+};
+
+export default RollDiceButton;

@@ -31,7 +31,7 @@ const Winner = ({ playerAScore, playerBScore }) => {
   );
 };
 
-export default function GameProgress() {
+const GameProgress = () => {
   const {
     round,
     playerTurn,
@@ -45,8 +45,14 @@ export default function GameProgress() {
     return <H2>Welcome to Chicago Dice</H2>;
   }
   return round > 1 && !gameEnded ? (
-    <H2><PlayerProgress {...{ round, playerTurn, dieOne, dieTwo }} /></H2>
+    <H2>
+      <PlayerProgress {...{ round, playerTurn, dieOne, dieTwo }} />
+    </H2>
   ) : (
-    <H2><Winner {...{ playerAScore, playerBScore }} /></H2>
+    <H2>
+      <Winner {...{ playerAScore, playerBScore }} />
+    </H2>
   );
-}
+};
+
+export default GameProgress;

@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import { random } from "lodash";
-import { DiceContainer } from "../styled";
+import { random } from 'lodash';
+import React, { useEffect } from 'react';
 
-import { ACTION_TYPES } from "../provider";
-import { useGameStateContext, useGameDispatchContext } from "../useGameContext";
+import { ACTION_TYPES } from '../provider';
+import { DiceContainer } from '../styled';
+import { useGameDispatchContext, useGameStateContext } from '../useGameContext';
 
-export default function Dice() {
+const DiceBoard = () => {
   const { dieOne, dieTwo, rollingDice } = useGameStateContext();
   const dispatch = useGameDispatchContext();
 
@@ -33,4 +33,6 @@ export default function Dice() {
       </DiceContainer>
     </>
   );
-}
+};
+
+export default DiceBoard;

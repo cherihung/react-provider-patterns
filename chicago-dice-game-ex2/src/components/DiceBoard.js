@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { random } from "lodash";
-import { DiceContainer } from "../styled";
+import { random } from 'lodash';
+import React, { useEffect } from 'react';
 
-import { useGameContext } from "../useGameContext";
+import { DiceContainer } from '../styled';
+import { useGameContext } from '../useGameContext';
 
-export default function Dice() {
+const DiceBoard = () => {
   const { dieOne, dieTwo, rollingDice, updateDice } = useGameContext();
 
   useEffect(() => {
@@ -29,4 +29,6 @@ export default function Dice() {
       </DiceContainer>
     </>
   );
-}
+};
+
+export default DiceBoard;

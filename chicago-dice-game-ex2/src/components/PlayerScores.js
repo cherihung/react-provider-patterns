@@ -1,8 +1,9 @@
-import React from "react";
-import { ScoreContainer, PlayerContainer } from "../styled";
-import { useGameContext } from "../useGameContext";
+import React from 'react';
 
-export default function PlayerScores() {
+import { PlayerContainer, ScoreContainer } from '../styled';
+import { useGameContext } from '../useGameContext';
+
+const PlayerScores = () => {
   const { playerAScore, playerBScore } = useGameContext();
 
   return (
@@ -17,4 +18,6 @@ export default function PlayerScores() {
       </PlayerContainer>
     </ScoreContainer>
   );
-}
+};
+
+export default PlayerScores;
