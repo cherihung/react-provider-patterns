@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const DiceContainer = styled.div`
   display: flex;
@@ -32,9 +32,12 @@ export const Button = styled.button`
 
 export const H2 = styled.h2`
   color: black;
-  height: 2em;
+  min-height: 2em;
   span {
     color: blueviolet;
+  }
+  div {
+    font-size: 2rem;
   }
 `;
 

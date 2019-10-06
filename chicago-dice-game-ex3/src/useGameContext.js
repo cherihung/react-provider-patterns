@@ -1,16 +1,26 @@
 import { useContext } from 'react';
 
-import { GameContext } from './provider';
+import { DispatchContext, StateContext } from './provider';
 
-const decideTurn = current => {
+function decideTurn(current) {
   return current === "A" ? "B" : "A";
 };
 
-const useGameContext = () => {
-  const [state, dispatch] = useContext(GameContext);
+function useGameStateContext() {
+  const state = useContext(StateContext);
+
+  if (state === undefined) {
+    throw new Error("Ut oh, where is my state?");
+  }
+
+  return state;
+};
+
+function useGameDispatchContext() {
+  const dispatch = useContext(DispatchContext);
 
   if (dispatch === undefined) {
-    throw new Error("Must have dispatch defined");
+    throw new Error("Ut oh, where is my dispatch?");
   }
 
   function initRoll(currentPlayer) {
@@ -27,14 +37,13 @@ const useGameContext = () => {
     });
   }
 
-  function updateDice({ dieOne, dieTwo }) {
+    function updateDice({ dieOne, dieTwo }) {
     dispatch(draft => {
       draft.rollingDice = false;
       draft.dieOne = dieOne;
       draft.dieTwo = dieTwo;
 
       const winning = dieOne + dieTwo === draft.round;
-
       if (draft.playerTurn === "A" && winning) {
         draft.playerAScore++;
       }
@@ -44,11 +53,11 @@ const useGameContext = () => {
     });
   }
 
-  return {
-    ...state,
-    initRoll,
-    updateDice
-  };
+  return { initRoll, updateDice };
 };
+
+const useGameContext = () => {
+  return [useGameStateContext(), useGameDispatchContext()]
+}
 
 export { useGameContext };

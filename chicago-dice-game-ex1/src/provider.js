@@ -1,5 +1,5 @@
-import React, { useReducer } from "react";
-import produce from "immer";
+import produce from 'immer';
+import React, { useReducer } from 'react';
 
 const defaultState = {
   dieOne: 0,
@@ -70,9 +70,11 @@ const GameProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   return (
-    <DispatchContext.Provider value={dispatch}>
-      <StateContext.Provider value={state}>{children}</StateContext.Provider>
-    </DispatchContext.Provider>
+    <StateContext.Provider value={state}>
+      <DispatchContext.Provider value={dispatch}>
+        {children}
+      </DispatchContext.Provider>
+    </StateContext.Provider>
   );
 };
 

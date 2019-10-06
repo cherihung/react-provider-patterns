@@ -32,6 +32,7 @@ const Winner = ({ playerAScore, playerBScore }) => {
 };
 
 const GameProgress = () => {
+  const [state] = useGameContext();
   const {
     round,
     playerTurn,
@@ -40,7 +41,7 @@ const GameProgress = () => {
     gameEnded,
     playerAScore,
     playerBScore
-  } = useGameContext();
+  } = state;
   if (round === 1) {
     return <H2>Welcome to Chicago Dice</H2>;
   }

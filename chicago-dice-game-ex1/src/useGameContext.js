@@ -6,7 +6,7 @@ const useGameStateContext = () => {
   const state = useContext(StateContext);
 
   if (state === undefined) {
-    throw new Error("must be used within a Provider");
+    throw new Error("Ut oh, where is my state?");
   }
 
   return state;
@@ -16,7 +16,7 @@ const useGameDispatchContext = () => {
   const dispatch = useContext(DispatchContext);
 
   if (dispatch === undefined) {
-    throw new Error("must be used within a Provider");
+    throw new Error("Ut oh, where is my dispatch?");
   }
 
   return dispatch;

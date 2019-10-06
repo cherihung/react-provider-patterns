@@ -44,15 +44,18 @@ const GameProgress = () => {
   if (round === 1) {
     return <H2>Welcome to Chicago Dice</H2>;
   }
-  return round > 1 && !gameEnded ? (
-    <H2>
-      <PlayerProgress {...{ round, playerTurn, dieOne, dieTwo }} />
-    </H2>
-  ) : (
-    <H2>
-      <Winner {...{ playerAScore, playerBScore }} />
-    </H2>
-  );
+  if (round > 1) {
+    return (
+      <H2>
+        {gameEnded ? (
+          <div>
+            <Winner {...{ playerAScore, playerBScore }} />
+          </div>
+        ) : null}
+        <PlayerProgress {...{ round, playerTurn, dieOne, dieTwo }} />
+      </H2>
+    );
+  }
 };
 
 export default GameProgress;
