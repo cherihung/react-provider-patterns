@@ -42,7 +42,7 @@ export default function GameProgress() {
     playerBScore
   } = useGameStateContext();
   if (round === 1) {
-    return <>Welcome to Chicago Dice</>;
+    return <H2>Welcome to Chicago Dice</H2>;
   }
   return round > 1 && !gameEnded ? (
     <H2><PlayerProgress {...{ round, playerTurn, dieOne, dieTwo }} /></H2>
