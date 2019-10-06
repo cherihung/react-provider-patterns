@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 
-import { DispatchContext, StateContext } from "./provider";
+import { DispatchContext, StateContext } from './provider';
 
 const useGameStateContext = () => {
   const state = useContext(StateContext);

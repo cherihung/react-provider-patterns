@@ -1,32 +1,33 @@
-import React from "react";
-import { useGameStateContext } from "../useGameContext";
-import { H2 } from "../styled";
+import React from 'react';
+
+import { H2 } from '../styled';
+import { useGameStateContext } from '../useGameContext';
 
 const PlayerProgress = ({ round, playerTurn, dieOne, dieTwo }) => {
   return (
-    <H2>
+    <>
       Target: {round} <br />
       Player {playerTurn} rolled <span>{dieOne + dieTwo}</span>
-    </H2>
+    </>
   );
 };
 
 const Winner = ({ playerAScore, playerBScore }) => {
   return playerAScore > playerBScore ? (
-    <H2>
+    <>
       Winner is <span>Player A</span>!{" "}
-    </H2>
+    </>
   ) : playerBScore > playerAScore ? (
-    <H2>
+    <>
       Winner is <span>Player B</span>!
-    </H2>
+    </>
   ) : (
-    <H2>
+    <>
       It's a tie. You are all losers.{" "}
       <span role="img" aria-label="ROFL">
         🤣
       </span>
-    </H2>
+    </>
   );
 };
 
@@ -41,11 +42,11 @@ export default function GameProgress() {
     playerBScore
   } = useGameStateContext();
   if (round === 1) {
-    return <H2>Welcome to Chicago Dice</H2>;
+    return <>Welcome to Chicago Dice</>;
   }
   return round > 1 && !gameEnded ? (
-    <PlayerProgress {...{ round, playerTurn, dieOne, dieTwo }} />
+    <H2><PlayerProgress {...{ round, playerTurn, dieOne, dieTwo }} /></H2>
   ) : (
-    <Winner {...{ playerAScore, playerBScore }} />
+    <H2><Winner {...{ playerAScore, playerBScore }} /></H2>
   );
 }
