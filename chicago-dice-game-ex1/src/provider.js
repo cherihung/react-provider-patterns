@@ -12,17 +12,17 @@ const defaultState = {
   gameEnded: false
 };
 
-const ACTION_TYPES = {
-  initRoll: "INIT_ROLL",
-  updateDice: "UPDATE_DICE_AND_SCORE"
-};
-
 const decideTurn = current => {
   return current === "A" ? "B" : "A";
 };
 
 const DispatchContext = React.createContext();
 const StateContext = React.createContext();
+
+const ACTION_TYPES = {
+  initRoll: "INIT_ROLL",
+  updateDice: "UPDATE_DICE_AND_SCORE"
+};
 
 const reducer = (state, action) =>
   produce(state, draft => {
