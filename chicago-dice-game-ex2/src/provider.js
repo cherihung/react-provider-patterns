@@ -15,11 +15,11 @@ const defaultState = {
 const GameContext = React.createContext();
 
 const GameProvider = ({ children }) => {
-  const [state, setState] = useImmer({ ...defaultState });
-  // alternatively without Immer:  const [state, setState] = useState({});
+  const [state, dispatch] = useImmer({ ...defaultState });
+  // alternatively without Immer:  const [state,dispatch] = useState({});
 
   return (
-    <GameContext.Provider value={[state, setState]}>
+    <GameContext.Provider value={[state, dispatch]}>
       {children}
     </GameContext.Provider>
   );

@@ -7,15 +7,15 @@ const decideTurn = current => {
 };
 
 const useGameContext = () => {
-  const [state, setState] = useContext(GameContext);
+  const [state, dispatch] = useContext(GameContext);
 
-  if (setState === undefined) {
-    throw new Error("Must have setState defined");
+  if (dispatch === undefined) {
+    throw new Error("Must have dispatch defined");
   }
 
   function initRoll(currentPlayer) {
     const nextTurn = decideTurn(currentPlayer);
-    setState(draft => {
+    dispatch(draft => {
       draft.rollingDice = true;
       draft.playerTurn = nextTurn;
       if (nextTurn === "A") {
@@ -28,7 +28,7 @@ const useGameContext = () => {
   }
 
   function updateDice({ dieOne, dieTwo }) {
-    setState(draft => {
+    dispatch(draft => {
       draft.rollingDice = false;
       draft.dieOne = dieOne;
       draft.dieTwo = dieTwo;
